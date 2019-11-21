@@ -16,28 +16,30 @@ void alucontrol::execute()
 {
       if(chave1&&!chave2){ //R aritmetico
           switch (funct) {
-          case 0x100000: //add
-              AluChave = 0x0010;
+          case 0b100000: //add
+              cout<<"AluControl selecionou adicao"<<endl;
+              AluChave = 0b0010;
               break;
 
-          case 0x100010: //sub
+          case 0b100010: //sub
+              cout<<"AluControl selecionou subtracao"<<endl;
               AluChave = 0110;
               break;
 
-          case 0x100100: //and
+          case 0b100100: //and
               AluChave = 0;
               break;
 
-          case 0x100101: //add
+          case 0b100101: //add
               AluChave = 1;
               break;
 
-          case 0x101100: //xor
-              AluChave = 0x1001;
+          case 0b101100: //xor
+              AluChave = 0b1001;
               break;
 
-          case 0x101010: //slt
-              AluChave = 0x0111;
+          case 0b101010: //slt
+              AluChave = 0b0111;
               break;
           //caso nor tem q achar
           }

@@ -1,6 +1,8 @@
 #ifndef DATAMEMORY_H
 #define DATAMEMORY_H
 
+#include <iostream>
+using namespace std;
 
 class datamemory
 {

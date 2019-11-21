@@ -1,6 +1,7 @@
 #ifndef ADD_H
 #define ADD_H
-
+#include <iostream>
+using namespace std;
 
 class add
 {

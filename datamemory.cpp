@@ -20,9 +20,11 @@ void datamemory::set(int add, int wd, bool mw, bool mr)
 void datamemory::execute()
 {
     if(memWrite){
+        cout<<"DataMemory escreveu dados"<<endl;
         data[address] = writeData;
     }
     if(memRead){
+        cout<<"DataMemory leu dados"<<endl;
         readData = data[address];
     }
 }

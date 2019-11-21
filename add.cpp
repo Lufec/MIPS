@@ -15,6 +15,7 @@ void add::set(int ent1, int ent2)
 
 void add::execute()
 {
+    cout<<"Realizou soma "<<entrada1<<" + "<<entrada2<<endl;
     saida = entrada1+entrada2;
 }
 

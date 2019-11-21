@@ -1,6 +1,8 @@
 #ifndef MUX_H
 #define MUX_H
 
+#include <iostream>
+using namespace std;
 
 class mux
 {

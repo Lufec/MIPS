@@ -27,6 +27,7 @@ void instructionMemory::set(int readAd)
 
 void instructionMemory::execute()
 {
+    cout<<"InstructionMemory decodificou instrucao"<<endl;
     int inst = memory[readAdress];
     funct = inst%64;
     int aux = inst>>6;

@@ -1,6 +1,8 @@
 #ifndef ALU_H
 #define ALU_H
 
+#include <iostream>
+using namespace std;
 
 class alu
 {

@@ -1,6 +1,8 @@
 #ifndef INSTRUCTIONMEMORY_H
 #define INSTRUCTIONMEMORY_H
 
+#include <iostream>
+using namespace std;
 
 class instructionMemory
 {

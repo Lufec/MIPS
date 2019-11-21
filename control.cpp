@@ -15,7 +15,8 @@ void control::set(int inst)
 void control::execute()
 {
     switch(op){
-    case 0x000000:   //R
+    case 0b000000:   //R
+        cout<<"Controle recebeu instrucao R"<<endl;
         RegDst = 1;
         ALUSrc = 0;
         memtoReg = 0;
@@ -27,7 +28,8 @@ void control::execute()
         ALUop2 = 0;
 
         break;
-    case 0x001000:  //addi
+    case 0b001000:  //addi
+        cout<<"Controle recebeu instrucao ADDI"<<endl;
         RegDst = 0;
         ALUSrc = 1;
         memtoReg = 0;
@@ -39,55 +41,55 @@ void control::execute()
         ALUop2 = 1;
 
         break;
-    /*case 0x001001: //addiu
+    /*case 0b001001: //addiu
 
         break;
-    case 0x001100: //andi
+    case 0b001100: //andi
 
         break;
-    case 0x000100: //beq
+    case 0b000100: //beq
 
         break;
-    case 0x000001: //bgez|bgezal|bltz|bltzal
+    case 0b000001: //bgez|bgezal|bltz|bltzal
 
         break;
-    case 0x000111: //bgtz
+    case 0b000111: //bgtz
 
         break;
-    case 0x000110: //blez
+    case 0b000110: //blez
 
         break;
-    case 0x000101: //bne
+    case 0b000101: //bne
 
         break;
-    case 0x000010: //j
+    case 0b000010: //j
 
         break;
-    case 0x000011: //jal
+    case 0b000011: //jal
 
         break;
-    case 0x100000: //lb
+    case 0b100000: //lb
 
         break;
-    case 0x001111: //lui
+    case 0b001111: //lui
 
         break;
-    case 0x100011: //lw
+    case 0b100011: //lw
 
         break;
-    case 0x001101: //ori
+    case 0b001101: //ori
 
         break;
-    case 0x001010: //slti
+    case 0b001010: //slti
 
         break;
-    case 0x001011: //sltiu
+    case 0b001011: //sltiu
 
         break;
-    case 0x101011: //sw
+    case 0b101011: //sw
 
         break;
-    case 0x001110: //xori
+    case 0b001110: //xori
 
         break; */
     }

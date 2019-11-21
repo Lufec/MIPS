@@ -1,6 +1,8 @@
 #ifndef ALUCONTROL_H
 #define ALUCONTROL_H
 
+#include <iostream>
+using namespace std;
 
 class alucontrol
 {

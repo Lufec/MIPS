@@ -1,6 +1,8 @@
 #ifndef SIGNEXTEND_H
 #define SIGNEXTEND_H
 
+#include <iostream>
+using namespace std;
 
 class signExtend
 {

@@ -1,6 +1,8 @@
 #ifndef PC_H
 #define PC_H
 
+#include <iostream>
+using namespace std;
 
 class pc
 {
