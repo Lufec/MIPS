@@ -5,10 +5,10 @@ signExtend::signExtend()
     saida=0;
 }
 
-void signExtend::set(int rt, int shamt, int funct)
+void signExtend::set(int imediato)
 {
-    saida = (rt<<11) + (shamt<<6) + funct;
-    cout<<"SignExtend extendeu sinal"<<endl;
+    saida = imediato;
+    cout<<"SignExtend extendeu sinal, valor = "<<saida<<endl;
 }
 
 int signExtend::getSaida()

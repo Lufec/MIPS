@@ -39,12 +39,12 @@ void MIPS::executar()
     Registers.set(instmem.getRs(),instmem.getRt(),m1.getSaida(),m3.getSaida(),Control.getregWrite());
     Registers.execute();
 
-    SignExtend.set(instmem.getRt(),instmem.getShamt(),instmem.getFunct());
+    SignExtend.set(instmem.getImediato());
 
     m2.set(Registers.getData2(),SignExtend.getSaida(),Control.getALUsrc());
     m2.execute();
 
-    AluControl.set(Control.getALUop1(),Control.getALUop2(),instmem.getFunct());
+    AluControl.set(Control.getALUop1(),Control.getALUop2(),Control.getALUI(),instmem.getFunct());
     AluControl.execute();
 
     Alu.set(Registers.getData1(),m2.getSaida(),AluControl.getSaida());
@@ -62,7 +62,8 @@ void MIPS::executar()
     add2.set(add1.getSaida(),SignExtend.getSaida());
     add2.execute();
 
-    m4.set(add1.getSaida(),add2.getSaida(),Control.getBranch()&&Alu.getZero());
+    bool AND = Control.getBranch()&&Alu.getZero();
+    m4.set(add1.getSaida(),add2.getSaida(),AND);
     m4.execute();
 
     Pc.set(m4.getSaida());

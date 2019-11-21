@@ -13,6 +13,7 @@ class instructionMemory
     int rd;
     int shamt;
     int funct;
+    int imediato;
     int memory[16];
 public:
     instructionMemory();
@@ -25,6 +26,8 @@ public:
     int getRd();
     int getShamt();
     int getFunct();
+    int getImediato();
+
 };
 
 #endif // INSTRUCTIONMEMORY_H

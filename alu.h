@@ -10,7 +10,7 @@ class alu
     int entrada2;
     int operacao;
     int saida;
-    bool zero;
+    bool zero = 0;
 public:
     alu();
     void set(int ent1, int ent2, int op);

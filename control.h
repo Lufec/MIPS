@@ -15,12 +15,13 @@ class control
     bool memtoReg;
     bool ALUop1;
     bool ALUop2;
+    int ALUI;
     bool memWrite;
     bool ALUSrc;
     bool RegWrite;
 public:
     control();
-    void set(int inst);
+    void set(int oper);
     void execute();
     bool getRegDst();
     bool getBranch();
@@ -31,6 +32,7 @@ public:
     bool getmemWrite();
     bool getALUsrc();
     bool getregWrite();
+    int getALUI();
 };
 
 #endif // CONTROL_H

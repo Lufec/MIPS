@@ -8,11 +8,12 @@ class alucontrol
 {
     bool chave1;
     bool chave2;
+    int ALUI;
     int funct;
     int AluChave;
 public:
     alucontrol();
-    void set(bool ALUop1, bool ALUop2, int fun);
+    void set(bool ALUop1, bool ALUop2,int ALUI, int fun);
     void execute();
     int getSaida();
 };

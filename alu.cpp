@@ -14,32 +14,33 @@ void alu::set(int ent1, int ent2, int op)
 
 void alu::execute()
 {
+    cout<<"ALU: ";
     switch (operacao) {
-    case 0x0010: //add
-        cout<<"alu selecionou adicao"<<endl;
+    case 2: //add
+        cout<<"alu selecionou adicao de entradas "<<entrada1<<" e "<<entrada2<<endl;
         saida = entrada1+entrada2;
         break;
-    case 0x0110: //sub
-        cout<<"alu selecionou subtracao"<<endl;
+    case 6: //sub
+        cout<<"alu selecionou subtracao de entradas "<<entrada1<<" e "<<entrada2<<endl;
         saida = entrada1-entrada2;
         break;
-    case 0x0000: //and
+    case 0: //and
         cout<<"alu selecionou AND"<<endl;
         saida = entrada1&entrada2;
         break;
-    case 0x0001: //or
+    case 1: //or
         cout<<"alu selecionou OR"<<endl;
         saida = entrada1|entrada2;
         break;
-    case 0x1001: //xor
+    case 9: //xor
         cout<<"alu selecionou XOR"<<endl;
         saida = entrada1^entrada2;
         break;
-    case 0x1100: //nor
+    case 12: //nor
         cout<<"alu selecionou NOR"<<endl;
         saida = ~(entrada1|entrada2);
         break;
-    case 0x0111: //slt
+    case 7: //slt
         cout<<"alu selecionou Shift Left"<<endl;
         saida = (entrada1<entrada2)?1:0;
     }

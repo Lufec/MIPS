@@ -5,15 +5,14 @@ control::control()
 
 }
 
-void control::set(int inst)
+void control::set(int oper)
 {
-    instruction = inst;
-    op = instruction >> 26;
-    funct = instruction%32;
+    op = oper;
 }
 
 void control::execute()
 {
+    cout<<"Controle: ";
     switch(op){
     case 0b000000:   //R
         cout<<"Controle recebeu instrucao R"<<endl;
@@ -22,10 +21,11 @@ void control::execute()
         memtoReg = 0;
         RegWrite = 1;
         memRead = 0;
-        memWrite =1;
+        memWrite =0;
         Branch = 0;
         ALUop1 = 1;
         ALUop2 = 0;
+        ALUI = 0;
 
         break;
     case 0b001000:  //addi
@@ -35,10 +35,11 @@ void control::execute()
         memtoReg = 0;
         RegWrite = 1;
         memRead = 0;
-        memWrite =1;
+        memWrite =0;
         Branch = 0;
         ALUop1 = 1;
         ALUop2 = 1;
+        ALUI = 0;
 
         break;
     /*case 0b001001: //addiu
@@ -123,6 +124,11 @@ bool control::getALUop1()
 bool control::getALUop2()
 {
     return ALUop2;
+}
+
+int control::getALUI()
+{
+    return ALUI;
 }
 
 bool control::getmemWrite()

@@ -9,7 +9,7 @@ class signExtend
     int saida;
 public:
     signExtend();
-    void set(int rt, int shamt, int funct);
+    void set(int imediato);
     int getSaida();
 };
 

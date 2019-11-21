@@ -17,7 +17,7 @@ void mux::set(int ent1, int ent2, bool dec)
 
 void mux::execute()
 {
-    if(chave){
+    if(!chave){
         cout<<"Mux selecionou entrada 1"<<endl;
         saida = entrada1;
     }

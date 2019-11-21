@@ -29,6 +29,7 @@ void instructionMemory::execute()
 {
     cout<<"InstructionMemory decodificou instrucao"<<endl;
     int inst = memory[readAdress];
+    imediato = inst%32768; //15 bits
     funct = inst%64;
     int aux = inst>>6;
     shamt = aux%32;
@@ -40,6 +41,7 @@ void instructionMemory::execute()
     rs = inst%32;
     inst = inst>>5;
     op = inst;
+
 }
 
 int instructionMemory::getOp()
@@ -65,4 +67,9 @@ int instructionMemory::getShamt(){
 
 int instructionMemory::getFunct(){
     return funct;
+}
+
+int instructionMemory::getImediato()
+{
+    return imediato;
 }

@@ -5,15 +5,17 @@ alucontrol::alucontrol()
     AluChave = 0;
 }
 
-void alucontrol::set(bool ALUop1, bool ALUop2, int fun)
+void alucontrol::set(bool ALUop1, bool ALUop2, int ALUi, int fun)
 {
     chave1 = ALUop1;
     chave2 = ALUop2;
+    ALUI = ALUi;
     funct = fun;
 }
 
 void alucontrol::execute()
 {
+      cout<<"ALUControl: ";
       if(chave1&&!chave2){ //R aritmetico
           switch (funct) {
           case 0b100000: //add
@@ -23,7 +25,7 @@ void alucontrol::execute()
 
           case 0b100010: //sub
               cout<<"AluControl selecionou subtracao"<<endl;
-              AluChave = 0110;
+              AluChave = 0b0110;
               break;
 
           case 0b100100: //and
@@ -45,7 +47,10 @@ void alucontrol::execute()
           }
       }
       if(chave1&&chave2){
-
+          if(ALUI == 0){
+              cout<<"Addi"<<endl;
+              AluChave = 0b0010;
+          }
       }
 
 }
