@@ -14,6 +14,7 @@ public:
     datamemory();
     void set(int add,int wd, bool mw, bool mr);
     void execute();
+    void printDataMem();
     int getReadData();
 
 };

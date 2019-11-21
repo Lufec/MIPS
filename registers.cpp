@@ -1,4 +1,6 @@
 #include "registers.h"
+#include <iostream>
+using namespace std;
 
 registers::registers()
 {
@@ -25,6 +27,13 @@ void registers::execute()
     }
     readData1 = regs[readReg1];
     readData2 = regs[readReg2];
+}
+
+void registers::printRegs()
+{
+    for(int i=0;i<32;i++){
+        cout<<"Reg["<<i<<"] : "<<regs[i]<<endl;
+    }
 }
 
 int registers::getData1()

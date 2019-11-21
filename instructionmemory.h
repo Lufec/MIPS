@@ -13,7 +13,8 @@ class instructionMemory
     int funct;
     int memory[16];
 public:
-    instructionMemory(int inst[]);
+    instructionMemory();
+    void insertInstructions(int inst[]);
     void set(int readAd);
     void execute();
     int getOp();

@@ -1,4 +1,6 @@
 #include "datamemory.h"
+#include <iostream>
+using namespace std;
 
 datamemory::datamemory()
 {
@@ -22,6 +24,13 @@ void datamemory::execute()
     }
     if(memRead){
         readData = data[address];
+    }
+}
+
+void datamemory::printDataMem()
+{
+    for(int i=0;i<32;i++){
+        cout<<"D["<<i<<"] : "<<data[i]<<endl;
     }
 }
 

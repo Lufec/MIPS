@@ -2,6 +2,8 @@
 #define MIPS_H
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <sstream>
 #include <add.h>
 #include <alu.h>
 #include <alucontrol.h>
@@ -11,7 +13,6 @@
 #include <mux.h>
 #include <pc.h>
 #include <registers.h>
-#include <shift2.h>
 #include <signextend.h>
 
 enum memoria{
@@ -22,27 +23,29 @@ enum memoria{
 };
 
 using namespace std;
+
 class MIPS{
-    pc pc;
+    pc Pc;
     instructionMemory instmem;
-    control control;
+    control Control;
     mux m1;
-    registers registers;
-    signExtend signExtend;
+    registers Registers;
+    signExtend SignExtend;
     mux m2;
-    shift2 shift2;
     alucontrol AluControl;
-    alu alu;
+    alu Alu;
     datamemory DataMem;
     mux m3;
     add add1;
     add add2;
     mux m4;
-    int instructions[16];
 public:
-  MIPS(int inst[]);
-  void setInstructions(std::ifstream instrucoes);
+  MIPS(pc pc1,instructionMemory im,control ct, mux mux1, registers reg, signExtend sgn, mux mux2, alucontrol alct, alu al, datamemory dm,mux mux3, add addd1, add addd2, mux mux4);
+  void setInstructions(int *inst);
   void executar();
+  void printRegs();
+  void printDataMem();
+
 
 };
 #endif // MIPS_H

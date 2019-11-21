@@ -1,6 +1,6 @@
 #ifndef REGISTERS_H
 #define REGISTERS_H
-
+#include <iostream>
 
 class registers
 {
@@ -16,6 +16,7 @@ public:
     registers();
     void set(int entr1, int entr2,int entwr, int entwd, bool chave);
     void execute();
+    void printRegs();
     int getData1();
     int getData2();
 };

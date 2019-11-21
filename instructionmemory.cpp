@@ -1,9 +1,9 @@
 #include "instructionmemory.h"
 
-instructionMemory::instructionMemory(int inst[])
+instructionMemory::instructionMemory()
 {
     for(int i=0;i<16;i++){
-        memory[i] = inst[i];
+        memory[i] = 0;
     }
     op=0;
     rd=0;
@@ -11,6 +11,13 @@ instructionMemory::instructionMemory(int inst[])
     rt=0;
     shamt=0;
     funct=0;
+}
+
+void instructionMemory::insertInstructions(int inst[])
+{
+    for(int i=0;i<16;i++){
+        memory[i] = inst[i];
+    }
 }
 
 void instructionMemory::set(int readAd)
