@@ -42,13 +42,63 @@ void control::execute()
         ALUI = 0;
 
         break;
+
+    case 0b000010: //j
+        cout<<"Controle recebeu operacao JUMP"<<endl;
+        RegDst = 0;
+        ALUSrc = 1;
+        memtoReg = 0;
+        RegWrite = 1;
+        memRead = 0;
+        memWrite =0;
+        Branch = 0;
+        ALUop1 = 1;
+        ALUop2 = 1;
+        ALUI = 0;
+        break;
+
+    case 0b000100: //beq
+        cout<<"Controle recebeu operacao BEQ"<<endl;
+        ALUSrc = 0;
+        RegWrite = 0;
+        memRead = 0;
+        memWrite =0;
+        Branch = 1;
+        ALUop1 = 1;
+        ALUop2 = 0;
+       // ALUI = 0;
+        break;
+
+    case 0b100011: //lw
+        cout<<"Controle recebeu operacao LW"<<endl;
+        RegDst = 0;
+        ALUSrc = 1;
+        memtoReg = 1;
+        RegWrite = 1;
+        memRead = 1;
+        memWrite =0;
+        Branch = 0;
+        ALUop1 = 0;
+        ALUop2 = 0;
+        ALUI = 0;
+        break;
+
+    case 0b101011: //sw
+        cout<<"Controle recebeu operacao ADDI"<<endl;
+        ALUSrc = 1;
+        RegWrite = 0;
+        memRead = 0;
+        memWrite =1;
+        Branch = 0;
+        ALUop1 = 0;
+        ALUop2 = 0;
+        //ALUI = 0;
+        break;
+
     /*case 0b001001: //addiu
 
         break;
     case 0b001100: //andi
-
-        break;
-    case 0b000100: //beq
 
         break;
     case 0b000001: //bgez|bgezal|bltz|bltzal
@@ -63,9 +113,6 @@ void control::execute()
     case 0b000101: //bne
 
         break;
-    case 0b000010: //j
-
-        break;
     case 0b000011: //jal
 
         break;
@@ -75,9 +122,6 @@ void control::execute()
     case 0b001111: //lui
 
         break;
-    case 0b100011: //lw
-
-        break;
     case 0b001101: //ori
 
         break;
@@ -85,9 +129,6 @@ void control::execute()
 
         break;
     case 0b001011: //sltiu
-
-        break;
-    case 0b101011: //sw
 
         break;
     case 0b001110: //xori

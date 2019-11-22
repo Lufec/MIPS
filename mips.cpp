@@ -62,8 +62,8 @@ void MIPS::executar()
     add2.set(add1.getSaida(),SignExtend.getSaida());
     add2.execute();
 
-    bool AND = Control.getBranch()&&Alu.getZero();
-    m4.set(add1.getSaida(),add2.getSaida(),AND);
+    bool And = Control.getBranch()&&Alu.getZero();
+    m4.set(add1.getSaida(),add2.getSaida(),And);
     m4.execute();
 
     Pc.set(m4.getSaida());

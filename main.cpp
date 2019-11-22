@@ -167,7 +167,8 @@ int *converterInstr(ifstream& mipsFile){
             //pegar rd,rs,imediato;
             //mesma coisa acima
 
-        }else if(comando == "sub"){
+        }
+        else if(comando == "sub"){
             op = 0;
             shamt = 0;
             funct = 0b100010;
@@ -183,6 +184,36 @@ int *converterInstr(ifstream& mipsFile){
             instr[i] = codigo;
             //pegar rd,rs,rt
             //mesma coisa acima
+        }
+        else if(comando == "lw"){
+            op=35;
+            instrucao>>rts>>imediato>>rss;
+            rt=selectAd(rts);
+            rs=selectAd(rss);
+            cout<<rt<<" "<<imediato<<" "<<rs<<endl;
+            codigo = op<<26;
+            codigo+= (rs<<21);
+            codigo+= (rt<<16);
+            codigo+= imediato;
+            instr[i] = codigo;
+        }
+        else if(comando == "sw"){
+            op=43;
+            instrucao>>rts>>imediato>>rss;
+            rt=selectAd(rts);
+            rs=selectAd(rss);
+            cout<<rt<<" "<<imediato<<" "<<rs<<endl;
+            codigo = op<<26;
+            codigo+= (rs<<21);
+            codigo+= (rt<<16);
+            codigo+= imediato;
+            instr[i] = codigo;
+        }
+        else if(comando == "j"){
+
+        }
+        else if(comando == "beq"){
+
         }
     }
     mipsFile.close();
@@ -213,14 +244,14 @@ int main()
 
     int* instructions = converterInstr(instrucoes);
 
-    for(int i=0;i<4;i++){
+    for(int i=0;i<7;i++){
         cout<<std::bitset<32>(instructions[i])<<endl;
     }
 
     mips.setInstructions(instructions);
 
 
-    for(int i=0;i<4;i++){ //número de instruções
+    for(int i=0;i<7;i++){ //número de instruções
 
         cout<<endl<<endl<<"executando instrucao "<<i<<endl;
         mips.executar();

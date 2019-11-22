@@ -25,7 +25,7 @@ void datamemory::execute()
     }
 
     if(memRead){
-        cout<<"DataMemory leu dados"<<endl;
+        cout<<"DataMemory leu dados de address "<<address<<endl;
         readData = data[address];
     }
 }
