@@ -69,6 +69,11 @@ void MIPS::executar()
     Pc.set(m4.getSaida());
 }
 
+void MIPS::printRegs()
+{
+    Registers.printRegs();
+}
+
 
 
 

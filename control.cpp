@@ -15,7 +15,7 @@ void control::execute()
     cout<<"Controle: ";
     switch(op){
     case 0b000000:   //R
-        cout<<"Controle recebeu instrucao R"<<endl;
+        cout<<"Controle recebeu operacao R"<<endl;
         RegDst = 1;
         ALUSrc = 0;
         memtoReg = 0;
@@ -29,7 +29,7 @@ void control::execute()
 
         break;
     case 0b001000:  //addi
-        cout<<"Controle recebeu instrucao ADDI"<<endl;
+        cout<<"Controle recebeu operacao ADDI"<<endl;
         RegDst = 0;
         ALUSrc = 1;
         memtoReg = 0;

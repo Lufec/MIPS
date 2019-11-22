@@ -139,11 +139,11 @@ int *converterInstr(ifstream& mipsFile){
             op=0;
             funct = 0b100000;
             shamt = 0;
-            instrucao>> rts >>rss>>rds;
+            instrucao>> rds >>rss>>rts;
             rt=selectAd(rts);
             rd=selectAd(rds);
             rs=selectAd(rss);
-            cout<<rt<<" "<<rs<<" "<<rd<<endl;
+            cout<<rd<<" "<<rs<<" "<<rt<<endl;
             codigo = rs<<21;
             codigo+= (rt<<16);
             codigo+= (rd<<11);
@@ -171,7 +171,7 @@ int *converterInstr(ifstream& mipsFile){
             op = 0;
             shamt = 0;
             funct = 0b100010;
-            instrucao >> rts >>rss>>rds;
+            instrucao >> rds >>rss>>rts;
             rt=selectAd(rts);
             rd=selectAd(rds);
             rs=selectAd(rss);
@@ -228,7 +228,7 @@ int main()
 
     cout<<"Registradores:"<<endl;
 
-    Registers.printRegs();
+    mips.printRegs();
 
    /* cout<<endl<<"Memoria:"<<endl;
     DataMem.printDataMem();

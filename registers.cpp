@@ -23,10 +23,11 @@ void registers::set(int entr1, int entr2, int entwr, int entwd, bool chave)
 void registers::execute()
 {
     if(regWrite){
-        cout<<"Registrador realizou operacao de escrita"<<endl;
+        cout<<"Registrador realizou operacao de escrita no endereco "<<writeReg<<endl;
         regs[writeReg] = writeData;
     }
-    cout<<"Registrador leu entradas"<<endl;
+    cout<<"Registrador recebeu rd = "<<readReg1<<", rs = "<<readReg2<<endl;
+    cout<<"Registrador leu entradas, D1 = "<<regs[readReg1]<<", D2 = "<<regs[readReg2]<<endl;
     readData1 = regs[readReg1];
     readData2 = regs[readReg2];
 }
