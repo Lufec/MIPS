@@ -71,7 +71,7 @@ void MIPS::executar()
     m5.set(m4.getSaida(),instmem.getJump(),Control.getJump());
     m5.execute();
 
-    Pc.set(m4.getSaida());
+    Pc.set(m5.getSaida());
 }
 
 void MIPS::printRegs()

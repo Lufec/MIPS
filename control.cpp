@@ -49,14 +49,14 @@ void control::execute()
         cout<<"Controle recebeu operacao JUMP"<<endl;
         RegDst = 0;
         Jump= 1;
-        ALUSrc = 1;
+        ALUSrc = 0;
         memtoReg = 0;
-        RegWrite = 1;
+        RegWrite = 0;
         memRead = 0;
         memWrite =0;
         Branch = 0;
-        ALUop1 = 1;
-        ALUop2 = 1;
+        ALUop1 = 0;
+        ALUop2 = 0;
         ALUI = 0;
         break;
 

@@ -212,7 +212,12 @@ unsigned int *converterInstr(ifstream& mipsFile){
             instr[i] = codigo;
         }
         else if(comando == "j"){
-
+            op = 0b000010;
+            instrucao >> endereco;
+            cout<<endereco<<endl;
+            codigo = op<<26;
+            codigo += endereco;
+            instr[i] = codigo;
         }
         else if(comando == "beq"){
             op=0b000100;

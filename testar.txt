@@ -2,3 +2,6 @@ addi $s0 $zero 4
 addi $t0 $zero 2
 sw $s0 15 $t0
 lw $t1 15 $t0
+j 6
+add $s1 $s0 $t0
+sub $s2 $s0 $t0 
