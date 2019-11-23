@@ -4,14 +4,14 @@ using namespace std;
 
 registers::registers()
 {
-    for(int i=0;i<32;i++){
+    for(unsigned int i=0;i<32;i++){
         regs[i] = 0;
     }
     readData1=0;
     readData2=0;
 }
 
-void registers::set(int entr1, int entr2, int entwr, int entwd, bool chave)
+void registers::set(unsigned int entr1, unsigned int entr2, unsigned int entwr, unsigned int entwd, bool chave)
 {
     readReg1 = entr1;
     readReg2 = entr2;
@@ -34,17 +34,17 @@ void registers::execute()
 
 void registers::printRegs()
 {
-    for(int i=0;i<32;i++){
+    for(unsigned int i=0;i<32;i++){
         cout<<"Reg["<<i<<"] : "<<regs[i]<<endl;
     }
 }
 
-int registers::getData1()
+unsigned int registers::getData1()
 {
     return readData1;
 }
 
-int registers::getData2()
+unsigned int registers::getData2()
 {
     return readData2;
 }

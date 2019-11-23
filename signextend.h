@@ -6,11 +6,11 @@ using namespace std;
 
 class signExtend
 {
-    int saida;
+    unsigned int saida;
 public:
     signExtend();
-    void set(int imediato);
-    int getSaida();
+    void set(unsigned int imediato);
+    unsigned int getSaida();
 };
 
 #endif // SIGNEXTEND_H

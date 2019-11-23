@@ -8,14 +8,14 @@ class alucontrol
 {
     bool chave1;
     bool chave2;
-    int ALUI;
-    int funct;
-    int AluChave;
+    unsigned int ALUI;
+    unsigned int funct;
+    unsigned int AluChave;
 public:
     alucontrol();
-    void set(bool ALUop1, bool ALUop2,int ALUI, int fun);
+    void set(bool ALUop1, bool ALUop2,unsigned int ALUI, unsigned int fun);
     void execute();
-    int getSaida();
+    unsigned int getSaida();
 };
 
 #endif // ALUCONTROL_H

@@ -5,7 +5,7 @@ alucontrol::alucontrol()
     AluChave = 0;
 }
 
-void alucontrol::set(bool ALUop1, bool ALUop2, int ALUi, int fun)
+void alucontrol::set(bool ALUop1, bool ALUop2, unsigned int ALUi, unsigned int fun)
 {
     chave1 = ALUop1;
     chave2 = ALUop2;
@@ -51,11 +51,51 @@ void alucontrol::execute()
               cout<<"Addi"<<endl;
               AluChave = 0b0010;
           }
+          else if(ALUI == 1){
+              cout<<"Subi"<<endl;
+
+          }
+          else if(ALUI == 2){
+              cout<<"ANDI"<<endl;
+
+          }
+          else if(ALUI == 3){
+              cout<<"ORI"<<endl;
+
+          }
+          else if(ALUI ==4){
+              cout<<"XORI"<<endl;
+
+          }
+          else if(ALUI == 5){
+              cout<<"BEQ"<<endl;
+              AluChave = 4;
+          }
+          else if(ALUI == 6){
+              cout<<"BNE"<<endl;
+              AluChave = 10;
+          }
+          else if(ALUI == 7){
+              cout<<"BGEZ"<<endl;
+              AluChave = 11;
+          }
+          else if(ALUI == 8){
+              cout<<"BLEZ"<<endl;
+              AluChave = 13;
+          }
+          else if(ALUI == 9){
+              cout<<"BGTZ"<<endl;
+              AluChave = 14;
+          }
+          else if(ALUI == 10){
+              cout<<"BLTZ"<<endl;
+              AluChave = 15;
+          }
       }
 
 }
 
-int alucontrol::getSaida()
+unsigned int alucontrol::getSaida()
 {
     return AluChave;
 }

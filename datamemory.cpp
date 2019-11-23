@@ -4,12 +4,12 @@ using namespace std;
 
 datamemory::datamemory()
 {
-    for(int i=0;i<32;i++){
+    for(unsigned int i=0;i<32;i++){
         data[i]=0;
     }
 }
 
-void datamemory::set(int add, int wd, bool mw, bool mr)
+void datamemory::set(unsigned int add, unsigned int wd, bool mw, bool mr)
 {
     address = add;
     writeData = wd;
@@ -20,24 +20,24 @@ void datamemory::set(int add, int wd, bool mw, bool mr)
 void datamemory::execute()
 {
     if(memWrite){
-        cout<<"DataMemory escreveu dados add:"<<address<<" W"<<writeData<<endl;
+        cout<<"DataMemory escreveu dados end:"<<address<<", valor "<<writeData<<endl;
         data[address] = writeData;
     }
 
     if(memRead){
-        cout<<"DataMemory leu dados de address "<<address<<endl;
+        cout<<"DataMemory leu dados de end "<<address<<", valor "<<data[address]<<endl;
         readData = data[address];
     }
 }
 
 void datamemory::printDataMem()
 {
-    for(int i=0;i<32;i++){
+    for(unsigned int i=0;i<32;i++){
         cout<<"D["<<i<<"] : "<<data[i]<<endl;
     }
 }
 
-int datamemory::getReadData()
+unsigned int datamemory::getReadData()
 {
     return readData;
 }

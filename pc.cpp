@@ -5,14 +5,14 @@ pc::pc()
     saida=0;
 }
 
-void pc::set(int ent)
+void pc::set(unsigned int ent)
 {
     saida = ent;
 
     cout<<"PC possui endereco armazenado igual a "<<saida<<endl;
 }
 
-int pc::getSaida()
+unsigned int pc::getSaida()
 {
     return saida;
 }

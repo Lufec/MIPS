@@ -8,7 +8,7 @@ mux::mux()
     chave = 0;
 }
 
-void mux::set(int ent1, int ent2, bool dec)
+void mux::set(unsigned int ent1, unsigned int ent2, bool dec)
 {
     entrada1 = ent1;
     entrada2 = ent2;
@@ -18,16 +18,16 @@ void mux::set(int ent1, int ent2, bool dec)
 void mux::execute()
 {
     if(!chave){
-        cout<<"Mux selecionou entrada 1"<<endl;
+        cout<<"Mux selecionou entrada 0"<<endl;
         saida = entrada1;
     }
     else{
-        cout<<"Mux selecionou entrada 2"<<endl;
+        cout<<"Mux selecionou entrada 1"<<endl;
         saida = entrada2;
     }
 }
 
-int mux::getSaida()
+unsigned int mux::getSaida()
 {
     return saida;
 }

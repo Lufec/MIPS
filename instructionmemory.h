@@ -6,28 +6,29 @@ using namespace std;
 
 class instructionMemory
 {
-    int readAdress;
-    int op;
-    int rs;
-    int rt;
-    int rd;
-    int shamt;
-    int funct;
-    int imediato;
-    int memory[16];
+    unsigned int readAdress;
+    unsigned int op;
+    unsigned int rs;
+    unsigned int rt;
+    unsigned int rd;
+    unsigned int shamt;
+    unsigned int funct;
+    unsigned int imediato;
+    unsigned int jump;
+    unsigned int memory[16];
 public:
     instructionMemory();
-    void insertInstructions(int inst[]);
-    void set(int readAd);
+    void insertInstructions(unsigned int inst[]);
+    void set(unsigned int readAd);
     void execute();
-    int getOp();
-    int getRs();
-    int getRt();
-    int getRd();
-    int getShamt();
-    int getFunct();
-    int getImediato();
-
+    unsigned int getOp();
+    unsigned int getRs();
+    unsigned int getRt();
+    unsigned int getRd();
+    unsigned int getShamt();
+    unsigned int getFunct();
+    unsigned int getImediato();
+    unsigned int getJump();
 };
 
 #endif // INSTRUCTIONMEMORY_H

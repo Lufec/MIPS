@@ -5,14 +5,14 @@ using namespace std;
 
 class add
 {
-    int entrada1;
-    int entrada2;
-    int saida;
+    unsigned int entrada1;
+    unsigned int entrada2;
+    unsigned int saida;
 public:
     add();
-    void set(int ent1, int ent2);
+    void set(unsigned int ent1, unsigned int ent2);
     void execute();
-    int getSaida();
+    unsigned int getSaida();
 };
 
 #endif // ADD_H

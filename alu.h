@@ -6,16 +6,16 @@ using namespace std;
 
 class alu
 {
-    int entrada1;
-    int entrada2;
-    int operacao;
-    int saida;
+    unsigned int entrada1;
+    unsigned int entrada2;
+    unsigned int operacao;
+    unsigned int saida;
     bool zero = 0;
 public:
     alu();
-    void set(int ent1, int ent2, int op);
+    void set(unsigned int ent1, unsigned int ent2, unsigned int op);
     void execute();
-    int getSaida();
+    unsigned int getSaida();
     bool getZero();
 };
 

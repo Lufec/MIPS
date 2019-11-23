@@ -5,7 +5,7 @@ alu::alu()
 
 }
 
-void alu::set(int ent1, int ent2, int op)
+void alu::set(unsigned int ent1, unsigned int ent2, unsigned int op)
 {
     entrada1=ent1;
     entrada2=ent2;
@@ -43,10 +43,35 @@ void alu::execute()
     case 7: //slt
         cout<<"alu selecionou Shift Left"<<endl;
         saida = (entrada1<entrada2)?1:0;
+        break;
+    case 4: //beq --
+        cout<<"Alu selecionou comparar igualdade"<<endl;
+        zero = (entrada1==entrada2)?1:0;
+        break;
+    case 10: //bne
+        cout<<"Alu selecionou comparar desigualdade"<<endl;
+        zero = (entrada1!=entrada2)?1:0;
+        break;
+    case 11: //bgez
+        cout<<"Alu selecionou maior igual"<<endl;
+        zero = (entrada1>=entrada2)?1:0;
+        break;
+    case 13: //blez
+        cout<<"Alu selecionou menor igual"<<endl;
+        zero = (entrada1<=entrada2)?1:0;
+        break;
+    case 14: //bgtz
+        cout<<"Alu selecionou maior"<<endl;
+        zero = (entrada1>entrada2)?1:0;
+        break;
+    case 15: //bltz
+        cout<<"Alu selecionou menor"<<endl;
+        zero = (entrada1>entrada2)?1:0;
+        break;
     }
 }
 
-int alu::getSaida()
+unsigned int alu::getSaida()
 {
     return saida;
 }

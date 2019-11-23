@@ -6,11 +6,11 @@ using namespace std;
 
 class pc
 {
-    int saida;
+    unsigned int saida;
 public:
     pc();
-    void set(int ent);
-    int getSaida();
+    void set(unsigned int ent);
+    unsigned int getSaida();
 };
 
 #endif // PC_H

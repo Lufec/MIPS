@@ -1,8 +1,9 @@
 #include "instructionmemory.h"
+#include <bitset>
 
 instructionMemory::instructionMemory()
 {
-    for(int i=0;i<16;i++){
+    for(unsigned int i=0;i<16;i++){
         memory[i] = 0;
     }
     op=0;
@@ -11,16 +12,18 @@ instructionMemory::instructionMemory()
     rt=0;
     shamt=0;
     funct=0;
+    jump = 0;
+    imediato = 0;
 }
 
-void instructionMemory::insertInstructions(int inst[])
+void instructionMemory::insertInstructions(unsigned int inst[])
 {
-    for(int i=0;i<16;i++){
+    for(unsigned int i=0;i<16;i++){
         memory[i] = inst[i];
     }
 }
 
-void instructionMemory::set(int readAd)
+void instructionMemory::set(unsigned int readAd)
 {
     readAdress = readAd;
 }
@@ -28,10 +31,11 @@ void instructionMemory::set(int readAd)
 void instructionMemory::execute()
 {
     cout<<"InstructionMemory decodificou instrucao"<<endl;
-    int inst = memory[readAdress];
+    unsigned int inst = memory[readAdress];
     imediato = inst%32768; //15 bits
+    jump = inst%33554432; //25 bits
     funct = inst%64;
-    int aux = inst>>6;
+    unsigned int aux = inst>>6;
     shamt = aux%32;
     inst = inst>>11;
     rd = inst%32;
@@ -41,35 +45,39 @@ void instructionMemory::execute()
     rs = inst%32;
     inst = inst>>5;
     op = inst;
-
+    cout<<" op = "<<op<<", rs = "<<rs<<", rt = "<<rt<<", rd = "<<rd<<", shamt = "<<shamt<<", funct = "<<funct<<", imediato = "<<imediato<<endl;
 }
 
-int instructionMemory::getOp()
+unsigned int instructionMemory::getOp()
 {
     return op;
 }
 
-int instructionMemory::getRd(){
+unsigned int instructionMemory::getRd(){
     return rd;
 }
 
-int instructionMemory::getRs(){
+unsigned int instructionMemory::getRs(){
     return rs;
 }
 
-int instructionMemory::getRt(){
+unsigned int instructionMemory::getRt(){
     return rt;
 }
 
-int instructionMemory::getShamt(){
+unsigned int instructionMemory::getShamt(){
     return shamt;
 }
 
-int instructionMemory::getFunct(){
+unsigned int instructionMemory::getFunct(){
     return funct;
 }
 
-int instructionMemory::getImediato()
+unsigned int instructionMemory::getImediato()
 {
     return imediato;
+}
+unsigned int instructionMemory::getJump()
+{
+    return jump;
 }

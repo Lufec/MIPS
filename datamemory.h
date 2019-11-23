@@ -6,18 +6,18 @@ using namespace std;
 
 class datamemory
 {
-    int address;
-    int writeData;
+    unsigned int address;
+    unsigned int writeData;
     bool memWrite;
     bool memRead;
-    int readData;
-    int data[32];
+    unsigned int readData;
+    unsigned int data[32];
 public:
     datamemory();
-    void set(int add,int wd, bool mw, bool mr);
+    void set(unsigned int add,unsigned int wd, bool mw, bool mr);
     void execute();
     void printDataMem();
-    int getReadData();
+    unsigned int getReadData();
 
 };
 

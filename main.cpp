@@ -4,7 +4,9 @@
 
 using namespace std;
 
-int selectAd(string end){
+unsigned int numero;
+
+unsigned int selectAd(string end){
     if(end == "$zero"){
         return 0;
     }
@@ -107,10 +109,10 @@ int selectAd(string end){
     }
 }
 
-int *converterInstr(ifstream& mipsFile){
-    int *instr = new int[16];
+unsigned int *converterInstr(ifstream& mipsFile){
+    unsigned int *instr = new unsigned int[16];
 
-    for(int i=0;i<16;i++){
+    for(unsigned int i=0;i<16;i++){
         instr[i]=0;
     }
 
@@ -126,16 +128,16 @@ int *converterInstr(ifstream& mipsFile){
         cout << "Erro ao abrir o arquivo" << endl;
         exit(0);
     }
-
-    for(int i=0; i<linhas.size(); i++){
-        int op,rd,rs,rt,shamt,funct,imediato,endereco; //leitura para epgar partes importantes da instrucao
-        int codigo = 0;
+    numero = linhas.size();
+    for(unsigned int i=0; i<linhas.size(); i++){
+        unsigned int op,rd,rs,rt,shamt,funct,imediato,endereco; //leitura para epgar partes importantes da instrucao
+        unsigned int codigo = 0;
         string rds,rss,rts;
         stringstream instrucao(linhas[i]);
         instrucao >> comando; //Cada instrução lida pela linha irá para uma string comandoMIPS que selecionará a ação.
         cout<<"comando = "<<comando<<" ";
         if (comando == "add"){
-            int aux =0;
+            unsigned int aux =0;
             op=0;
             funct = 0b100000;
             shamt = 0;
@@ -186,7 +188,7 @@ int *converterInstr(ifstream& mipsFile){
             //mesma coisa acima
         }
         else if(comando == "lw"){
-            op=35;
+            op=0b100011;
             instrucao>>rts>>imediato>>rss;
             rt=selectAd(rts);
             rs=selectAd(rss);
@@ -198,7 +200,7 @@ int *converterInstr(ifstream& mipsFile){
             instr[i] = codigo;
         }
         else if(comando == "sw"){
-            op=43;
+            op=0b101011;
             instrucao>>rts>>imediato>>rss;
             rt=selectAd(rts);
             rs=selectAd(rss);
@@ -213,7 +215,28 @@ int *converterInstr(ifstream& mipsFile){
 
         }
         else if(comando == "beq"){
-
+            op=0b000100;
+            instrucao>>rss>>rts>>imediato;
+            rt=selectAd(rts);
+            rs=selectAd(rss);
+            cout<<rs<<" "<<rt<<" "<<imediato<<endl;
+            codigo=op<<26;
+            codigo+= (rs<<21);
+            codigo+= (rt<<16);
+            codigo+= imediato;
+            instr[i] = codigo;
+        }
+        else if(comando == "bne"){
+            op=0b000101;
+            instrucao>>rss>>rts>>imediato;
+            rt=selectAd(rts);
+            rs=selectAd(rss);
+            cout<<rs<<" "<<rt<<" "<<imediato<<endl;
+            codigo=op<<26;
+            codigo+= (rs<<21);
+            codigo+= (rt<<16);
+            codigo+= imediato;
+            instr[i] = codigo;
         }
     }
     mipsFile.close();
@@ -236,22 +259,23 @@ int main()
     add add1;
     add add2;
     mux m4;
+    mux m5;
 
-    MIPS mips(Pc,instmem,Control,m1,Registers,SignExtend,m2,AluControl, Alu, DataMem, m3, add1,add2,m4);
+    MIPS mips(Pc,instmem,Control,m1,Registers,SignExtend,m2,AluControl, Alu, DataMem, m3, add1,add2,m4,m5);
 
     ifstream instrucoes;
     //colocar instrucoes no mips - armazenar em vetor e jogar vetor no mips
 
-    int* instructions = converterInstr(instrucoes);
+    unsigned int* instructions = converterInstr(instrucoes);
 
-    for(int i=0;i<7;i++){
+    for(unsigned int i=0;i<numero;i++){
         cout<<std::bitset<32>(instructions[i])<<endl;
     }
 
     mips.setInstructions(instructions);
 
 
-    for(int i=0;i<7;i++){ //número de instruções
+    for(unsigned int i=0;i<numero;i++){ //número de instruções
 
         cout<<endl<<endl<<"executando instrucao "<<i<<endl;
         mips.executar();
@@ -261,8 +285,8 @@ int main()
 
     mips.printRegs();
 
-   /* cout<<endl<<"Memoria:"<<endl;
-    DataMem.printDataMem();
-*/
+    cout<<endl<<"Memoria:"<<endl;
+    mips.printDataMem();
+
     return 0;
 }

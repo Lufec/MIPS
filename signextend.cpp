@@ -5,13 +5,13 @@ signExtend::signExtend()
     saida=0;
 }
 
-void signExtend::set(int imediato)
+void signExtend::set(unsigned int imediato)
 {
     saida = imediato;
     cout<<"SignExtend extendeu sinal, valor = "<<saida<<endl;
 }
 
-int signExtend::getSaida()
+unsigned int signExtend::getSaida()
 {
     return saida;
 }

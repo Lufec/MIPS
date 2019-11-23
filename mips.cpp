@@ -1,6 +1,6 @@
 #include "mips.h"
 
-MIPS::MIPS(pc pc1, instructionMemory im, control ct, mux mux1, registers reg, signExtend sgn, mux mux2, alucontrol alct, alu al, datamemory dm, mux mux3, add addd1, add addd2, mux mux4)
+MIPS::MIPS(pc pc1, instructionMemory im, control ct, mux mux1, registers reg, signExtend sgn, mux mux2, alucontrol alct, alu al, datamemory dm, mux mux3, add addd1, add addd2, mux mux4, mux mux5)
 {
    Pc = pc1;
    instmem = im;
@@ -16,14 +16,15 @@ MIPS::MIPS(pc pc1, instructionMemory im, control ct, mux mux1, registers reg, si
    add1 = addd1;
    add2 = addd2;
    m4 = mux4;
+   m5 = mux5;
 }
 
-void MIPS::setInstructions(int *inst)
+void MIPS::setInstructions(unsigned int *inst)
 {
     instmem.insertInstructions(inst);
 }
 void MIPS::executar()
-{
+{   cout<<"Somador PC:";
     add1.set(Pc.getSaida(),1);
     add1.execute();
 
@@ -59,12 +60,16 @@ void MIPS::executar()
     Registers.set(instmem.getRs(),instmem.getRt(),m1.getSaida(),m3.getSaida(),Control.getregWrite()); //caso precise escrever algo
     Registers.execute();
 
+    cout<<"Somador Branch/Jump, ";
     add2.set(add1.getSaida(),SignExtend.getSaida());
     add2.execute();
 
     bool And = Control.getBranch()&&Alu.getZero();
     m4.set(add1.getSaida(),add2.getSaida(),And);
     m4.execute();
+
+    m5.set(m4.getSaida(),instmem.getJump(),Control.getJump());
+    m5.execute();
 
     Pc.set(m4.getSaida());
 }
@@ -74,6 +79,9 @@ void MIPS::printRegs()
     Registers.printRegs();
 }
 
-
+void MIPS::printDataMem()
+{
+    DataMem.printDataMem();
+}
 
 
