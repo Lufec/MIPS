@@ -23,13 +23,28 @@ void MIPS::setInstructions(unsigned int *inst)
 {
     instmem.insertInstructions(inst);
 }
-void MIPS::executar()
-{   cout<<"Somador PC:";
+
+bool MIPS::checkSC(unsigned int op, unsigned int jmp)
+{
+    if (op ==0 && jmp ==0){
+        cout<<"syscall"<<endl<<endl;
+        return 1;
+    }
+    else return 0;
+}
+
+bool MIPS::executar()
+{
+    cout<<"Somador PC:";
     add1.set(Pc.getSaida(),1);
     add1.execute();
 
     instmem.set(Pc.getSaida());
     instmem.execute();
+
+    if(checkSC(instmem.getOp(),instmem.getJump())){
+        return 0;
+    }
 
     Control.set(instmem.getOp());
     Control.execute();
@@ -72,6 +87,8 @@ void MIPS::executar()
     m5.execute();
 
     Pc.set(m5.getSaida());
+
+    return 1;
 }
 
 void MIPS::printRegs()

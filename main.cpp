@@ -243,6 +243,10 @@ unsigned int *converterInstr(ifstream& mipsFile){
             codigo+= imediato;
             instr[i] = codigo;
         }
+        else if(comando == "syscall"){
+            cout<<endl;
+            instr[i] = 0;
+        }
     }
     mipsFile.close();
     return instr;
@@ -279,11 +283,10 @@ int main()
 
     mips.setInstructions(instructions);
 
-
-    for(unsigned int i=0;i<numero;i++){ //número de instruções
-
-        cout<<endl<<endl<<"executando instrucao "<<i<<endl;
-        mips.executar();
+    bool execute = 1;
+    while(execute){
+          cout<<endl<<"Executando instrucao.."<<endl;
+          execute = mips.executar();
     }
 
     cout<<"Registradores:"<<endl;
