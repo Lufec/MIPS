@@ -8,7 +8,7 @@ mux::mux()
     chave = 0;
 }
 
-void mux::set(unsigned int ent1, unsigned int ent2, bool dec)
+void mux::set(int ent1, int ent2, bool dec)
 {
     entrada1 = ent1;
     entrada2 = ent2;
@@ -27,7 +27,7 @@ void mux::execute()
     }
 }
 
-unsigned int mux::getSaida()
+int mux::getSaida()
 {
     return saida;
 }

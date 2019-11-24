@@ -7,17 +7,17 @@ using namespace std;
 class datamemory
 {
     unsigned int address;
-    unsigned int writeData;
+    int writeData;
     bool memWrite;
     bool memRead;
-    unsigned int readData;
-    unsigned int data[32];
+    int readData;
+    int data[32];
 public:
     datamemory();
-    void set(unsigned int add,unsigned int wd, bool mw, bool mr);
+    void set(int add,int wd, bool mw, bool mr);
     void execute();
     void printDataMem();
-    unsigned int getReadData();
+    int getReadData();
 
 };
 

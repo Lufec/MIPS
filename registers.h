@@ -6,12 +6,12 @@ using namespace std;
 
 class registers
 {
-    unsigned int readReg1;
-    unsigned int readReg2;
+    int readReg1;
+    int readReg2;
     unsigned int writeReg;
-    unsigned int writeData;
+    int writeData;
     bool regWrite;
-    unsigned int regs[32]; //r0, r1, v0-1,a0-3,t0-7,s0-7,t8-9,k0-1,gp,sp,fp,ra
+    int regs[32]; //r0, r1, v0-1,a0-3,t0-7,s0-7,t8-9,k0-1,gp,sp,fp,ra
     unsigned int readData1;
     unsigned int readData2;
 public:

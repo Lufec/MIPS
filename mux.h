@@ -6,15 +6,15 @@ using namespace std;
 
 class mux
 {
-    unsigned int entrada1;
-    unsigned int entrada2;
-    unsigned int saida;
+    int entrada1;
+    int entrada2;
+    int saida;
     bool chave;
 public:
     mux();
-    void set(unsigned int ent1, unsigned int ent2, bool dec);
+    void set(int ent1, int ent2, bool dec);
     void execute();
-    unsigned int getSaida();
+    int getSaida();
 };
 
 #endif // MUX_H

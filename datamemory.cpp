@@ -9,7 +9,7 @@ datamemory::datamemory()
     }
 }
 
-void datamemory::set(unsigned int add, unsigned int wd, bool mw, bool mr)
+void datamemory::set(int add, int wd, bool mw, bool mr)
 {
     address = add;
     writeData = wd;
@@ -37,7 +37,7 @@ void datamemory::printDataMem()
     }
 }
 
-unsigned int datamemory::getReadData()
+int datamemory::getReadData()
 {
     return readData;
 }
