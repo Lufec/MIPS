@@ -1,9 +1,8 @@
 #include "instructionmemory.h"
-#include <bitset>
 
 instructionMemory::instructionMemory()
 {
-    for(unsigned int i=0;i<16;i++){
+    for(unsigned int i=0;i<32;i++){
         memory[i] = 0;
     }
     op=0;
@@ -18,7 +17,7 @@ instructionMemory::instructionMemory()
 
 void instructionMemory::insertInstructions(unsigned int inst[])
 {
-    for(unsigned int i=0;i<16;i++){
+    for(unsigned int i=0;i<32;i++){
         memory[i] = inst[i];
     }
 }

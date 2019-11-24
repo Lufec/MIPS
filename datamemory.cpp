@@ -20,7 +20,7 @@ void datamemory::set(unsigned int add, unsigned int wd, bool mw, bool mr)
 void datamemory::execute()
 {
     if(memWrite){
-        cout<<"DataMemory escreveu dados end:"<<address<<", valor "<<writeData<<endl;
+        cout<<"DataMemory escreveu dados em end:"<<address<<", valor "<<writeData<<endl;
         data[address] = writeData;
     }
 

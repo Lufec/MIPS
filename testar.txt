@@ -1,11 +1,18 @@
-addi $s0 $zero 4
-addi $t0 $zero 2
-sw $s0 15 $t0
-lw $t1 15 $t0
-j 6
+addi $s1 $zero 10
+addi $s2 $zero 2
+addi $s3 $zero 8
+addi $s4 $zero 6
+add $t0 $s1 $s2
+add $t1 $s3 $s4
+sub $s0 $t1 $t0
+sub $s5 $s3 $s4
+sw $s0 3 $t0
+sw $s1 4 $t0
+sw $s2 5 $t0
+lw $t2 5 $t0
+lw $t3 4 $t0
+beq $s2 $s5 1
+addi $t2 $zero 100
+j 17
 add $s1 $s0 $t0
-sub $s2 $s0 $t0 
-beq $s2 $t0 1
-lw $s2 15 $t0
-sw $s0 16 $t0
 syscall

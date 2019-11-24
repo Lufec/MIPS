@@ -15,7 +15,7 @@ class instructionMemory
     unsigned int funct;
     unsigned int imediato;
     unsigned int jump;
-    unsigned int memory[16];
+    unsigned int memory[32];
 public:
     instructionMemory();
     void insertInstructions(unsigned int inst[]);

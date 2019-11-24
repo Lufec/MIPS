@@ -1,6 +1,5 @@
 #include <mips.h>
 #include <bitset>
-#include <map>
 
 using namespace std;
 
@@ -110,9 +109,9 @@ unsigned int selectAd(string end){
 }
 
 unsigned int *converterInstr(ifstream& mipsFile){
-    unsigned int *instr = new unsigned int[16];
+    unsigned int *instr = new unsigned int[32];
 
-    for(unsigned int i=0;i<16;i++){
+    for(unsigned int i=0;i<32;i++){
         instr[i]=0;
     }
 
@@ -245,7 +244,7 @@ unsigned int *converterInstr(ifstream& mipsFile){
         }
         else if(comando == "syscall"){
             cout<<endl;
-            instr[i] = 0;
+            instr[i] = 0b1100;
         }
     }
     mipsFile.close();
